@@ -2,30 +2,32 @@
 
 module Graphics.Formats.STL.Parser where
 
+import Prelude hiding (takeWhile)
+
 import Control.Applicative
 import Data.Attoparsec.Text
-import Linear
+import Data.Text (Text)
 
 import Graphics.Formats.STL.Types
 
-parser :: Parser STL
-parser = STL <$> name <*> many' triangle
+stlParser :: Parser STL
+stlParser = STL <$> nameParser <*> many' triangle
 
-name :: Parser Text
-name = text "solid" *> takeWhile (inClass " -~")
+nameParser :: Parser Text
+nameParser = text "solid" *> takeWhile (inClass " -~") <* skipSpace
 
-triangle = Triangle <$> ss normal <*> loop
+triangle = Triangle <$> ss normalParser <*> loop <* text "endfacet"
 
-loop = V3 <$> (text "outer loop" *> ss vertex) <*> ss vertex <*> ss vertex
+loop = triple <$> (text "outer loop" *> ss vertex) <*> ss vertex <*> ss vertex <* text "endloop"
 
-normal :: Parser Vector
-normal = text "facet" *> text "normal" *> v3
+normalParser :: Parser Vector
+normalParser = text "facet" *> text "normal" *> v3
 
 vertex :: Parser Vector
 vertex = text "vertex" *> v3
 
 v3 :: Parser Vector
-v3 = V3 <$> ss double <*> ss double <*> ss double
+v3 = triple <$> ss double <*> ss double <*> ss double
 
 ss :: Parser a -> Parser a
 ss p = p <* skipSpace
