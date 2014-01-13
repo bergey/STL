@@ -15,6 +15,7 @@ category:            Graphics
 build-type:          Simple
 -- extra-source-files:  
 cabal-version:       >=1.10
+bug-reports:         github.com/bergey/STL/issues
 
 library
   exposed-modules:  Graphics.Formats.STL,
