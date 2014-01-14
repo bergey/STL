@@ -4,8 +4,14 @@
 name:                STL
 version:             0.1.0.0
 synopsis:            STL 3D geometry format parsing and pretty-printing
--- description:         
-homepage:            github.com/bergey/STL
+description:         STL is a simple file format for representing 3D
+                     objects as the triangles which form their
+                     surface.  It is common in 3D printing workflows.
+
+                     This library provides parsing and serialization
+                     to the ASCII STL format.  The binary STL format
+                     is not yet supported.
+homepage:            http://github.com/bergey/STL
 license:             BSD3
 license-file:        LICENSE
 author:              Daniel Bergey
@@ -15,7 +21,7 @@ category:            Graphics
 build-type:          Simple
 -- extra-source-files:  
 cabal-version:       >=1.10
-bug-reports:         github.com/bergey/STL/issues
+bug-reports:         http://github.com/bergey/STL/issues
 
 library
   exposed-modules:  Graphics.Formats.STL,
