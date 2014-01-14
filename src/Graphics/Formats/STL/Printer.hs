@@ -5,6 +5,8 @@ import Text.PrettyPrint
 
 import Graphics.Formats.STL.Types
 
+-- | Convert an @STL@ value to a @Doc@, which can be converted to a
+-- @String@ with 'render'
 prettySTL :: STL -> Doc
 prettySTL s = vcat [ text "solid " <> (text . unpack $ name s)
                 , vcat . map triangle $ triangles s

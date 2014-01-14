@@ -1,7 +1,7 @@
 module Graphics.Formats.STL (
       prettySTL
     , stlParser
-    , STL, Triangle
+    , STL(..), Triangle(..), Vector(..)
     )
     where
 

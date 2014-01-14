@@ -10,6 +10,9 @@ import Data.Text (Text)
 
 import Graphics.Formats.STL.Types
 
+-- | A parser from 'Text' to the @STL@ type.  The parser should be
+-- fairly permissive about whitespace, but has not been tested enough
+-- against STL files in the wild.
 stlParser :: Parser STL
 stlParser = STL <$> nameParser <*> many' triangle
 
