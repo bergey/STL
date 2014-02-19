@@ -27,4 +27,4 @@ vertex :: Vector -> Doc
 vertex v = text "vertex" <+> v3 v
 
 v3 :: Vector -> Doc
-v3 (x, y, z) = hsep [double x, double y, double z]
+v3 (x, y, z) = hsep [float x, float y, float z]

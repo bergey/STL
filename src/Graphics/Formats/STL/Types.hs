@@ -14,7 +14,7 @@ data Triangle = Triangle { normal :: Vector
                          , vertices :: (Vector, Vector, Vector)
                          }
 
-type Vector = (Double, Double, Double)
+type Vector = (Float, Float, Float)
 
 triple :: a -> a -> a -> (a, a, a)
 triple a b c = (a, b, c)

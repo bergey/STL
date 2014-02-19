@@ -30,10 +30,13 @@ vertex :: Parser Vector
 vertex = text "vertex" *> v3
 
 v3 :: Parser Vector
-v3 = triple <$> ss double <*> ss double <*> ss double
+v3 = triple <$> ss float <*> ss float <*> ss float
 
 ss :: Parser a -> Parser a
 ss p = p <* skipSpace
 
 text :: Text -> Parser Text
 text t = string t <* skipSpace
+
+float :: Parser Float
+float = realToFrac <$> double
