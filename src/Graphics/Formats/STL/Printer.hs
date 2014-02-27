@@ -15,13 +15,17 @@ prettySTL s = vcat [ text "solid " <> (text . unpack $ name s)
 
 triangle :: Triangle -> Doc
 triangle (Triangle n (a, b, c)) =
-    vcat [ text "facet normal" <+> v3 n
+    vcat [ text "facet normal" <+> maybeNormal n
          , nest 4 $ vcat [ text "outer loop"
                          , nest 4 $ vcat [vertex a, vertex b, vertex c]
                          , text "endloop"
                          ]
          , text "endfacet"
          ]
+
+maybeNormal n = case n of
+    Nothing -> v3 (0,0,0)
+    Just n' -> v3 n'
 
 vertex :: Vector -> Doc
 vertex v = text "vertex" <+> v3 v

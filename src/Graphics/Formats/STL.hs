@@ -5,6 +5,7 @@ module Graphics.Formats.STL (
     )
     where
 
+import Graphics.Formats.STL.Binary
 import Graphics.Formats.STL.Printer (prettySTL)
 import Graphics.Formats.STL.Parser (stlParser)
 import Graphics.Formats.STL.Types

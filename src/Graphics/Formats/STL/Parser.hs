@@ -23,8 +23,12 @@ triangle = Triangle <$> ss normalParser <*> loop <* text "endfacet"
 
 loop = triple <$> (text "outer loop" *> ss vertex) <*> ss vertex <*> ss vertex <* text "endloop"
 
-normalParser :: Parser Vector
-normalParser = text "facet" *> text "normal" *> v3
+normalParser :: Parser (Maybe Vector)
+normalParser = text "facet" *> text "normal" *> do
+    n <- v3
+    return $ case n of
+        (0, 0, 0) -> Nothing
+        _         -> Just n
 
 vertex :: Parser Vector
 vertex = text "vertex" *> v3

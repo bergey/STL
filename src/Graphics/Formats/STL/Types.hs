@@ -10,7 +10,7 @@ data STL = STL { name :: Text
 
 -- | A single triangle in STL is represented by a normal vector and
 -- three vertices.
-data Triangle = Triangle { normal :: Vector
+data Triangle = Triangle { normal :: Maybe Vector
                          , vertices :: (Vector, Vector, Vector)
                          }
 

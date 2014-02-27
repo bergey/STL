@@ -13,7 +13,7 @@ import           Data.Text.Encoding
 
 instance Serialize Triangle where
     get = undefined
-    put (Triangle n (a, b, c)) = v3 n *> v3 a *> v3 b *> v3 c *> put (0x00 :: Word16)
+    put (Triangle n (a, b, c)) = maybeNormal n *> v3 a *> v3 b *> v3 c *> put (0x00 :: Word16)
 
 instance Serialize STL where
     get = undefined
@@ -32,3 +32,7 @@ header name = BS.concat [lib, truncatedName, padding] where
 float = putFloat32le
 
 v3 (x,y,z) = float x *> float y *> float z
+
+maybeNormal n = case n of
+    Nothing -> v3 (0,0,0)
+    Just n' -> v3 n'
