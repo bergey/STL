@@ -2,8 +2,8 @@
 
 module Graphics.Formats.STL.Binary where
 
-import Graphics.Formats.STL.Types
-import Data.Word
+import           Graphics.Formats.STL.Types
+import           Data.Word
 import           Control.Applicative
 import           Data.Serialize
 import           Data.Serialize.IEEE754
