@@ -19,6 +19,11 @@ build-type:          Simple
 -- extra-source-files:  
 cabal-version:       >=1.10
 bug-reports:         http://github.com/bergey/STL/issues
+Tested-with:         GHC == 7.6.3, GHC == 7.8.1
+Source-repository head
+  type:     git
+  location: http://github.com/bergey/STL.git
+
 
 library
   exposed-modules:  Graphics.Formats.STL,
@@ -28,7 +33,7 @@ library
                     Graphics.Formats.STL.Binary
   -- other-modules:       
   -- other-extensions:    
-  build-depends:    base >=4.6 && <4.7,
+  build-depends:    base >=4.6 && <4.8,
                     attoparsec >= 0.11 && < 0.12,
                     text >= 1.0 && < 1.2,
                     cereal >= 0.4 && < 0.5,
