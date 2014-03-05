@@ -6,8 +6,7 @@ description:         STL is a simple file format for representing 3D
                      surface.  It is common in 3D printing workflows.
 
                      This library provides parsing and serialization
-                     to the ASCII STL format.  The binary STL format
-                     is not yet supported.
+                     to and from both text and binary STL formats.
 homepage:            http://github.com/bergey/STL
 license:             BSD3
 license-file:        LICENSE
