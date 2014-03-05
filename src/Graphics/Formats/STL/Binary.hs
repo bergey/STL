@@ -13,7 +13,7 @@ import qualified Data.ByteString as BS
 import           Data.Text.Encoding
 
 instance Serialize Triangle where
-    get = Triangle <$> getNormal <*> t where
+    get = Triangle <$> getNormal <*> t <* skip 2 where
       t = (,,) <$> getVector <*> getVector <*> getVector
     put (Triangle n (a, b, c)) = maybeNormal n *> v3 a *> v3 b *> v3 c *> put (0x00 :: Word16)
 
