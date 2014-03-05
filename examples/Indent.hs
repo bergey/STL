@@ -1,9 +1,10 @@
-import qualified  Data.Text.IO as T
-import Options.Applicative
-import Text.PrettyPrint (render)
-import Data.Attoparsec.Text (parseOnly)
+import qualified Data.Text.IO as T
+import           Options.Applicative
+import           Data.Attoparsec.Text (parseOnly)
+import qualified Data.ByteString.Lazy as BS
+import           Data.ByteString.Lazy.Builder (toLazyByteString)
 
-import Graphics.Formats.STL
+import           Graphics.Formats.STL
 
 data Opts = Opts String
 
@@ -17,7 +18,7 @@ copySTL (Opts fn) = do
             putStrLn $ "Encountered error reading "++fn
             putStrLn error
         Right stl -> do
-            writeFile "pretty.stl" . render . prettySTL $ stl
+            BS.writeFile "pretty.stl" . toLazyByteString . textSTL $ stl
             putStrLn "wrote output to pretty.stl"
 
 main :: IO ()
