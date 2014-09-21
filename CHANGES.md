@@ -1,3 +1,9 @@
-# 0.2.0.1
+0.2.0.2
+-------
 
-- Allow attoparsec 0.12.*
+- Allow `text-1.2`
+
+0.2.0.1
+-------
+
+  - Allow `attoparsec 0.12.*`
