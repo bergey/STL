@@ -38,9 +38,9 @@ vertex :: Vector -> Builder
 vertex v = stringUtf8 "vertex " <> v3 v
 
 v3 :: Vector -> Builder
-v3 (x, y, z) = mconcat $ intersperse comma [floatDec x, floatDec y, floatDec z]
+v3 (x, y, z) = mconcat $ intersperse space [floatDec x, floatDec y, floatDec z]
   where
-    comma = stringUtf8 ", "
+    space = charUtf8 ' '
 
 indent :: Int -> Builder -> Builder
 indent i bs = spaces <> bs where
