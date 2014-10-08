@@ -19,8 +19,10 @@ stlParser = STL <$> nameParser <*> many' triangle
 nameParser :: Parser Text
 nameParser = text "solid" *> takeWhile (inClass " -~") <* skipSpace
 
+triangle :: Parser Triangle
 triangle = Triangle <$> ss normalParser <*> loop <* text "endfacet"
 
+loop :: Parser (Vector, Vector, Vector)
 loop = triple <$> (text "outer loop" *> ss vertex) <*> ss vertex <*> ss vertex <* text "endloop"
 
 normalParser :: Parser (Maybe Vector)
