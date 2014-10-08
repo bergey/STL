@@ -8,15 +8,16 @@ import           Graphics.Formats.STL
 
 data Opts = Opts String
 
+opts :: Parser Opts
 opts = Opts <$> argument Just (metavar "FILENAME" <> help "Input STL file")
 
 copySTL :: Opts -> IO ()
 copySTL (Opts fn) = do
     i <- T.readFile fn
     case parseOnly stlParser i of
-        Left error -> do
+        Left err -> do
             putStrLn $ "Encountered error reading "++fn
-            putStrLn error
+            putStrLn err
         Right stl -> do
             BS.writeFile "pretty.stl" . toLazyByteString . textSTL $ stl
             putStrLn "wrote output to pretty.stl"

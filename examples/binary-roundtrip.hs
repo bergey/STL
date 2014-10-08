@@ -6,15 +6,16 @@ import           Graphics.Formats.STL
 
 data Opts = Opts String
 
+opts :: Parser Opts
 opts = Opts <$> argument Just (metavar "FILENAME" <> help "Input STL file")
 
 copySTL :: Opts -> IO ()
 copySTL (Opts fn) = do
     i <- BS.readFile fn
     case runGet (get :: Get STL) i of
-        Left error -> do
+        Left err -> do
             putStrLn $ "Encountered error reading "++fn
-            putStrLn error
+            putStrLn err
         Right stl -> do
             BS.writeFile "roundtrip.stl" . runPut . put $ stl
             putStrLn "wrote output to roundtrip.stl"
