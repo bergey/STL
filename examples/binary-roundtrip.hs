@@ -23,5 +23,5 @@ copySTL (Opts fn) = do
 main :: IO ()
 main = execParser withHelp >>= copySTL where
   withHelp = info (helper <*> opts)
-               ( fullDesc <> progDesc "pretty print FILENAME"
+               ( fullDesc <> progDesc "read  FILENAME as a binary STL, and write out \"roundtrip.stl\", also as binary STL"
                  <> header "binary-roundtrip - a test for STL library" )
