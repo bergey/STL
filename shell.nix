@@ -3,7 +3,8 @@
 let 
   tmpHaskellPkgs= haskellPackages.override {
         extension = self: super: {
-        text = self.callPackage /home/bergey/code/nixHaskellVersioned/text/1.2.0.0.nix {};       
+        bytestring = self.callPackage /home/bergey/code/nixHaskellVersioned/bytestring/0.10.4.0.nix {};
+        cereal = self.callPackage /home/bergey/code/nixHaskellVersioned/cereal/0.4.1.0.nix {};
         STL = self.callPackage ./. {};
       };
     };
