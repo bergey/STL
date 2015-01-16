@@ -4,7 +4,7 @@ $CABAL update\
        then
          $CABAL install $CABAL_CONSTRAINTS haddock -j$NUM_CPU
        fi\
-  && cabal sandbox init
+  && cabal sandbox init\
   && if ! [[ -z "$EXTRA_DEPS_PRE" ]]
        then
          echo "============================================================"
