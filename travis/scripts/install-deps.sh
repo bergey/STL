@@ -3,7 +3,8 @@ $CABAL update\
   && if ! [[ $GHCVER == "head" || -n $SKIP_HADDOCK ]]
        then
          $CABAL install $CABAL_CONSTRAINTS haddock -j$NUM_CPU
-     fi\
+       fi\
+  && cabal sandbox init
   && if ! [[ -z "$EXTRA_DEPS_PRE" ]]
        then
          echo "============================================================"
