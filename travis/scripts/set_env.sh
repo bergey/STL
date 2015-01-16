@@ -8,7 +8,7 @@
 
 date
 
-case "HPVER" in
+case "$HPVER" in
 "") ;;
 "2014.2.0.0")
   export GHCVER=7.8.3 ;
