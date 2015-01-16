@@ -2,9 +2,11 @@
 
 let 
   tmpHaskellPkgs= haskellPackages.override {
-        extension = self: super: {
-        bytestring = self.callPackage /home/bergey/code/nixHaskellVersioned/bytestring/0.10.4.0.nix {};
-        cereal = self.callPackage /home/bergey/code/nixHaskellVersioned/cereal/0.4.1.0.nix {};
+     extension = self: super: rec {
+        hsPkg = pkg: version: self.callPackage "/home/bergey/code/nixHaskellVersioned/${pkg}/${version}.nix" {};
+        bytestring = hsPkg "bytestring" "0.10.4.0";
+        # cereal = self.callPackage /home/bergey/code/nixHaskellVersioned/cereal/0.4.1.0.nix {};
+        attoparsec = hsPkg "attoparsec" "0.10.4.0";
         STL = self.callPackage ./. {};
       };
     };
