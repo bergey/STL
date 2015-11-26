@@ -1,15 +1,15 @@
-import qualified Data.Text.IO as T
-import           Options.Applicative
-import           Data.Attoparsec.Text (parseOnly)
-import qualified Data.ByteString.Lazy as BS
+import           Data.Attoparsec.Text         (parseOnly)
+import qualified Data.ByteString.Lazy         as BS
 import           Data.ByteString.Lazy.Builder (toLazyByteString)
+import qualified Data.Text.IO                 as T
+import           Options.Applicative
 
 import           Graphics.Formats.STL
 
 data Opts = Opts String
 
 opts :: Parser Opts
-opts = Opts <$> argument Just (metavar "FILENAME" <> help "Input STL file")
+opts = Opts <$> strArgument (metavar "FILENAME" <> help "Input STL file")
 
 copySTL :: Opts -> IO ()
 copySTL (Opts fn) = do

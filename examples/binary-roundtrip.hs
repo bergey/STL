@@ -1,4 +1,4 @@
-import qualified Data.ByteString as BS
+import qualified Data.ByteString      as BS
 import           Data.Serialize
 import           Options.Applicative
 
@@ -7,7 +7,7 @@ import           Graphics.Formats.STL
 data Opts = Opts String
 
 opts :: Parser Opts
-opts = Opts <$> argument Just (metavar "FILENAME" <> help "Input STL file")
+opts = Opts <$> strArgument (metavar "FILENAME" <> help "Input STL file")
 
 copySTL :: Opts -> IO ()
 copySTL (Opts fn) = do
