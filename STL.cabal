@@ -1,5 +1,5 @@
 name:                STL
-version:             0.3.0.2
+version:             0.3.0.3
 synopsis:            STL 3D geometry format parsing and pretty-printing
 description:         STL is a simple file format for representing 3D
                      objects as the triangles which form their
