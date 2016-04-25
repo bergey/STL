@@ -15,3 +15,5 @@ TAGS
 /cabal.sandbox.config
 /examples/binary-roundtrip
 .stack-work/
+.cabbages/
+/buildplan
