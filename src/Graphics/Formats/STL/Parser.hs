@@ -4,7 +4,6 @@ module Graphics.Formats.STL.Parser where
 
 import Prelude hiding (takeWhile)
 
-import Control.Applicative
 import Data.Attoparsec.Text
 import Data.Text (Text)
 

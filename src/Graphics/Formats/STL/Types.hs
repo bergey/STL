@@ -8,7 +8,6 @@ module Graphics.Formats.STL.Types
            triple,
        ) where
 
-import           Control.Applicative
 import           Control.Monad
 import qualified Data.ByteString as BS
 import           Data.Serialize
