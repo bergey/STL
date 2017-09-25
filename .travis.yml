@@ -7,6 +7,7 @@ env:
     - GHCVER=8.2.1
   global:
     - CABALVER=1.24
+    - EXTRA_DEPS_PRE="Cabal"
 
 before_install:
   - git clone http://github.com/diagrams/diagrams-travis travis
