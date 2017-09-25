@@ -3,6 +3,7 @@ import qualified Data.ByteString.Lazy         as BS
 import           Data.ByteString.Lazy.Builder (toLazyByteString)
 import qualified Data.Text.IO                 as T
 import           Options.Applicative
+import Data.Semigroup
 
 import           Graphics.Formats.STL
 

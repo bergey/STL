@@ -1,6 +1,7 @@
 import qualified Data.ByteString      as BS
 import           Data.Serialize
 import           Options.Applicative
+import Data.Semigroup
 
 import           Graphics.Formats.STL
 

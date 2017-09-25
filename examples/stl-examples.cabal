@@ -24,20 +24,20 @@ executable indent-stl
   main-is:          Indent.hs
   hs-source-dirs:   .
   default-language: Haskell2010
-  build-depends:    base >=4.6 && <4.9,
+  build-depends:    base,
                     STL >= 0.3 && < 0.4,
-                    text >= 1.0 && < 1.3,
-                    optparse-applicative >= 0.11 && < 0.13,
-                    attoparsec >= 0.11 && < 0.13,
-                    bytestring >= 0.10 && < 0.11
+                    optparse-applicative >= 0.11 && < 0.15,
+                    text,
+                    attoparsec,
+                    bytestring
 
 executable binary-roundtrip
   main-is:          binary-roundtrip.hs
   hs-source-dirs:   .
   default-language: Haskell2010
-  build-depends:    base >=4.6 && <4.9,
+  build-depends:    base,
                     STL >= 0.3 && < 0.4,
-                    text >= 1.0 && < 1.3,
-                    optparse-applicative >= 0.11 && < 0.13,
-                    cereal >= 0.4 && < 0.5,
-                    bytestring >= 0.10 && < 0.11
+                    optparse-applicative >= 0.11 && < 0.15,
+                    text,
+                    cereal,
+                    bytestring
