@@ -3,7 +3,7 @@
 module Graphics.Formats.STL.Printer where
 
 import qualified Data.ByteString as BS
-import           Data.ByteString.Lazy.Builder
+import           Data.ByteString.Builder
 import           Data.List (intersperse)
 import           Data.Monoid
 import           Data.Text.Encoding (encodeUtf8)
